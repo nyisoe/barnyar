@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from .import settings
 from django.conf.urls.static import static
-from sms_app import views
+from sms_app import views, Hodviews
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     path("", views.showLoginPage),
     path('get_user_details', views.GetUserDetails),
     path('logout_user', views.log_out),
-    path("doLogin", views.doLogin)
+    path('doLogin', views.doLogin),
+    path('admin_home', Hodviews.admin_home)
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
